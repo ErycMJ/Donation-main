@@ -92,6 +92,10 @@ O projeto segue uma arquitetura em camadas:
 * **Requisição:**
 * **Resposta (204 - No Content):** (ou 404 - Not Found)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb02efdd907fa5f1ebf3f557a039aa72123ecc34
 ### 6. Criar Doação
 - **Método**: POST
 - **Endpoint**: `/doacoes`
