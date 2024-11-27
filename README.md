@@ -91,3 +91,117 @@ O projeto segue uma arquitetura em camadas:
 
 * **Requisição:**
 * **Resposta (204 - No Content):** (ou 404 - Not Found)
+
+
+==========================================================
+### 6. Criar Doação
+- **Método**: POST
+- **Endpoint**: `/doacoes`
+- **Status HTTP**: `201 CREATED`
+
+**Corpo da Requisição (JSON)**:
+```json
+  {
+  	"titulo": "Titulo da Doacao",
+    "descricao": "Nova doação",
+    "localizacao": "Criciúma",
+    "empresa": "SATC",
+    "imagem": "codigoDaImagem",
+    "tempo": "25 dias",
+    "valor": "25000",
+    "usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  }
+
+  ```
+* **Resposta (201 - Created):**
+  ```json
+  {
+  	"id": "afe45db0-041a-4d43-8305-79003ac3834e",
+  	"titulo": "Titulo da Doacao",
+  	"descricao": "Nova doação",
+  	"localizacao": "Criciúma",
+  	"empresa": "SATC",
+  	"tempo": "25 dias",
+  	"valor": 25000.0,
+  	"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  }
+  ```
+
+**7. Listar Doações (GET /doacoes)**
+
+* **Requisição:**  (pode incluir parâmetros de paginação)
+* **Resposta (200 - OK):**
+  ```json
+  [
+  	{
+  		"id": "dad1a481-b6cc-4264-a2b7-31dab119d2ce",
+  		"titulo": "Doacao",
+  		"descricao": "donation01",
+  		"localizacao": "Guaripaba",
+  		"empresa": "SATEC",
+  		"tempo": "Muitho",
+  		"valor": 15000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	},
+  	{
+  		"id": "ed7312af-0d38-46e8-a236-f6b296c4124a",
+  		"titulo": "Titulo da Doacao",
+  		"descricao": "Nova doação",
+  		"localizacao": "Criciúma",
+  		"empresa": "SATC",
+  		"tempo": "25 dias",
+  		"valor": 25000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	}
+  ]
+  ```
+
+**8. Obter Doações por Usuário (GET doacoes/usuario/{id})**
+
+* **Requisição:**
+* **Resposta (200 - OK):**  (ou 404 - Not Found se o usuário não existir)
+  ```json
+  [
+  	{
+  		"id": "dad1a481-b6cc-4264-a2b7-31dab119d2ce",
+  		"titulo": "Doacao",
+  		"descricao": "donation01",
+  		"localizacao": "Guaripaba",
+  		"empresa": "SATEC",
+  		"tempo": "Muitho",
+  		"valor": 15000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	},
+  	{
+  		"id": "ed7312af-0d38-46e8-a236-f6b296c4124a",
+  		"titulo": "Titulo da Doacao",
+  		"descricao": "Nova doação",
+  		"localizacao": "Criciúma",
+  		"empresa": "SATC",
+  		"tempo": "25 dias",
+  		"valor": 25000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	}
+  ]
+  ```
+
+**9. Atualizar Usuário (PUT /doacoes/{id})**
+
+* **Requisição:**
+  ```json
+  {
+  	"titulo": "Doacao",
+    "descricao": "donation01",
+    "localizacao": "Guarcxvxcvipaba",
+    "empresa": "SATEC",
+    "imagem": null,
+    "tempo": "Muitho",
+    "valor": "15000"
+  }
+  ```
+* **Resposta (200 - OK):** (ou 404 - Not Found)
+
+**10. Deletar Doação (DELETE /doacoes/{id})**
+
+* **Requisição:**
+* **Resposta (204 - No Content):** (ou 404 - Not Found)
