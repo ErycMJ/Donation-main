@@ -91,3 +91,226 @@ O projeto segue uma arquitetura em camadas:
 
 * **Requisição:**
 * **Resposta (204 - No Content):** (ou 404 - Not Found)
+
+### 6. Criar Doação
+- **Método**: POST
+- **Endpoint**: `/doacoes`
+- **Status HTTP**: `201 CREATED`
+
+**Corpo da Requisição (JSON)**:
+```json
+  {
+  	"titulo": "Titulo da Doacao",
+    "descricao": "Nova doação",
+    "localizacao": "Criciúma",
+    "empresa": "SATC",
+    "imagem": "codigoDaImagem",
+    "tempo": "25 dias",
+    "valor": "25000",
+    "usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  }
+
+  ```
+* **Resposta (201 - Created):**
+  ```json
+  {
+  	"id": "afe45db0-041a-4d43-8305-79003ac3834e",
+  	"titulo": "Titulo da Doacao",
+  	"descricao": "Nova doação",
+  	"localizacao": "Criciúma",
+  	"empresa": "SATC",
+  	"tempo": "25 dias",
+  	"valor": 25000.0,
+  	"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  }
+  ```
+
+**7. Listar Doações (GET /doacoes)**
+
+* **Requisição:**  (pode incluir parâmetros de paginação)
+* **Resposta (200 - OK):**
+  ```json
+  [
+  	{
+  		"id": "dad1a481-b6cc-4264-a2b7-31dab119d2ce",
+  		"titulo": "Doacao",
+  		"descricao": "donation01",
+  		"localizacao": "Guaripaba",
+  		"empresa": "SATEC",
+  		"tempo": "Muitho",
+  		"valor": 15000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	},
+  	{
+  		"id": "ed7312af-0d38-46e8-a236-f6b296c4124a",
+  		"titulo": "Titulo da Doacao",
+  		"descricao": "Nova doação",
+  		"localizacao": "Criciúma",
+  		"empresa": "SATC",
+  		"tempo": "25 dias",
+  		"valor": 25000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	}
+  ]
+  ```
+
+**8. Obter Doações por Usuário (GET doacoes/usuario/{id})**
+
+* **Requisição:**
+* **Resposta (200 - OK):**  (ou 404 - Not Found se o usuário não existir)
+  ```json
+  [
+  	{
+  		"id": "dad1a481-b6cc-4264-a2b7-31dab119d2ce",
+  		"titulo": "Doacao",
+  		"descricao": "donation01",
+  		"localizacao": "Guaripaba",
+  		"empresa": "SATEC",
+  		"tempo": "Muitho",
+  		"valor": 15000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	},
+  	{
+  		"id": "ed7312af-0d38-46e8-a236-f6b296c4124a",
+  		"titulo": "Titulo da Doacao",
+  		"descricao": "Nova doação",
+  		"localizacao": "Criciúma",
+  		"empresa": "SATC",
+  		"tempo": "25 dias",
+  		"valor": 25000.0,
+  		"usuarioId": "16d220b4-8721-4a5d-bf66-7ee36fbe42b6"
+  	}
+  ]
+  ```
+
+**9. Atualizar Usuário (PUT /doacoes/{id})**
+
+* **Requisição:**
+  ```json
+  {
+  	"titulo": "Doacao",
+    "descricao": "donation01",
+    "localizacao": "Guarcxvxcvipaba",
+    "empresa": "SATEC",
+    "imagem": null,
+    "tempo": "Muitho",
+    "valor": "15000"
+  }
+  ```
+* **Resposta (200 - OK):** (ou 404 - Not Found)
+
+**10. Deletar Doação (DELETE /doacoes/{id})**
+
+* **Requisição:**
+* **Resposta (204 - No Content):** (ou 404 - Not Found)
+
+### 11. Criar Transferência
+- **Método**: POST
+- **Endpoint**: `/transferencia`
+- **Status HTTP**: `201 CREATED`
+
+**Corpo da Requisição (JSON)**:
+```json
+  {
+    "valor": 150.00,
+    "contaOrigemId": 1,
+    "contaDestinoId": 2,
+    "descricao": "Pagamento de fatura"
+  }   
+```
+
+* **Resposta (201 - Created):**
+  ```json
+  {
+    "id": 1,
+    "valor": 150.00,
+    "contaOrigemId": 1,
+    "contaDestinoId": 2,
+    "descricao": "Pagamento de fatura",
+    "dataTransferencia": "2024-11-26T14:30:00"
+  }
+  ```
+
+**12. Listar Transferência**
+- **Método**: GET
+- **Endpoint**: `/transferencia`
+- **Status HTTP**: `200 OK`
+
+* **Resposta (200 - OK):**
+  ```json
+  [
+  {
+    "id": 1,
+    "valor": 150.00,
+    "contaOrigemId": 1,
+    "contaDestinoId": 2,
+    "descricao": "Pagamento de fatura",
+    "dataTransferencia": "2024-11-26T14:30:00"
+  },
+  {
+    "id": 2,
+    "valor": 200.00,
+    "contaOrigemId": 3,
+    "contaDestinoId": 1,
+    "descricao": "Transferência entre amigos",
+    "dataTransferencia": "2024-11-25T11:15:00"
+  }
+  ]
+
+  ```
+
+**13. Obter Transferência por ID**
+- **Método**: GET
+- **Endpoint**: `/transferencia/{id}`
+- **Status HTTP**: `200 OK (ou 404 Not Found se a transferência não for encontrada)`
+
+* **Resposta (200 - OK):**
+  ```json
+  {
+  "id": 1,
+  "valor": 150.00,
+  "contaOrigemId": 1,
+  "contaDestinoId": 2,
+  "descricao": "Pagamento de fatura",
+  "dataTransferencia": "2024-11-26T14:30:00"
+  }
+
+  ```
+
+**14. Atualizar Transferência**
+- **Método**: PUT
+- **Endpoint**: `/transferencia/{id}`
+- **Status HTTP**: `200 OK (ou 404 Not Found se a transferência não for encontrada)`
+
+**Corpo da Requisição (JSON)**:
+```json
+  {
+  "valor": 175.00,
+  "contaOrigemId": 1,
+  "contaDestinoId": 2,
+  "descricao": "Pagamento de fatura atualizado"
+  }
+```
+
+* **Resposta (200 - OK):**
+  ```json
+  {
+  "id": 1,
+  "valor": 175.00,
+  "contaOrigemId": 1,
+  "contaDestinoId": 2,
+  "descricao": "Pagamento de fatura atualizado",
+  "dataTransferencia": "2024-11-26T14:30:00"
+  }
+
+  ```
+
+**15. Deletar Transferência**
+- **Método**: DELETE
+- **Endpoint**: `/transferencia/{id}`
+- **Status HTTP**: `200 OK (ou 404 Not Found se a transferência não for encontrada)`
+
+* **Resposta (204 - No Content):**
+  ```json
+  {}
+  ```
