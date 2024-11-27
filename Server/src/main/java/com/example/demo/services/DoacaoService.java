@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class DoacaoService {
@@ -24,11 +23,11 @@ public class DoacaoService {
     }
 
     public List<DoacaoRespostaDto> listarTodas() {
-        return doacaoRepository.findAll().stream().map(this::toDto).collect(Collectors.toList());
+        return doacaoRepository.findAll().stream().map(this::toDto).toList();
     }
 
     public List<DoacaoRespostaDto> listarPorUsuario(UUID usuarioId) {
-        return doacaoRepository.findByUsuarioCriadorId(usuarioId).stream().map(this::toDto).collect(Collectors.toList());
+        return doacaoRepository.findByUsuarioCriadorId(usuarioId).stream().map(this::toDto).toList();
     }
 
     public DoacaoRespostaDto criar(DoacaoRequisicaoDto dto) {
@@ -47,7 +46,8 @@ public class DoacaoService {
         return toDto(doacaoRepository.save(doacao));
     }
 
-    public DoacaoRespostaDto atualizar(UUID id, DoacaoRequisicaoDto dto) {
+    public DoacaoRespostaDto 
+    atualizar(UUID id, DoacaoRequisicaoDto dto) {
         DoacaoModelo doacao = doacaoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Doação não encontrada"));
 
@@ -76,7 +76,7 @@ public class DoacaoService {
                 doacao.getEmpresa(),
                 doacao.getTempo(),
                 doacao.getValor(),
-                doacao.getUsuarioCriador()
+                doacao.getUsuarioCriador().getId()
         );
     }
 }

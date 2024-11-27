@@ -4,7 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
-public record DoacaoRequisicaoDto(        @NotBlank String titulo,
+public record DoacaoRequisicaoDto(        
+        @NotBlank String titulo,
         @NotBlank String descricao,
         @NotBlank String localizacao,
         @NotBlank String empresa,

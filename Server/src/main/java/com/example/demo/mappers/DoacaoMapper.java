@@ -30,7 +30,7 @@ public class DoacaoMapper {
                 doacao.getEmpresa(),
                 doacao.getTempo(),
                 doacao.getValor(),
-                doacao.getUsuarioCriador()
+                doacao.getUsuarioCriador().getId()
         );
     }
 }

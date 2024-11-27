@@ -10,5 +10,5 @@ public record DoacaoRespostaDto(
         String empresa,
         String tempo,
         Double valor,
-        com.example.demo.models.UsuarioModelo usuarioId
+        UUID usuarioId
 ) {}
