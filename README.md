@@ -1,6 +1,6 @@
 # Microserviço de Usuários
 
-Este projeto implementa um microserviço CRUD de Usuários com funcionalidades para criar, listar, obter por ID e deletar usuários. Ele segue uma arquitetura em camadas com o uso de DTOs, Repository Pattern e Mapeamento de Objetos.
+O objetivo deste projeto é possibilitar o cadastro e realizações de doações, permitindo que os usuários possam requisitar e transferir entre si para sanar suas necessidades requeridas. A aplicação permite que o usuário crie, edite, e cancele uma doação e que o mesmo possa doar para as solicitações disponibilizadas por outros usuários.
 
 ## Tecnologias Utilizadas
 - **Java** (versão 17 ou superior)
