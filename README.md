@@ -20,6 +20,11 @@ O projeto segue uma arquitetura em camadas:
 - **DTO (Data Transfer Object)**: Objetos de transferência para garantir que apenas dados necessários sejam enviados ou recebidos pela API.
 - **Mapper**: Mapeia objetos do tipo modelo para DTOs e vice-versa.
 
+## Recursos
+- 1. Usuário
+- 2. Doação
+- 3. Transferencia 
+
 ## Endpoints
 
 ### 1. Criar Usuário
