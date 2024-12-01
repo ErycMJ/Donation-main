@@ -1,25 +1,18 @@
 package com.example.demo.dtos;
 
+import java.util.UUID;
+
 public class TransferenciaRequestDTO {
-    private String origem;
-    private String destino;
+    private UUID doacaoId;
     private Double valor;
 
     // Getters e Setters
-    public String getOrigem() {
-        return origem;
+    public UUID getDoacaoId() {
+        return doacaoId;
     }
 
-    public void setOrigem(String origem) {
-        this.origem = origem;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setDoacaoId(UUID doacaoId) {
+        this.doacaoId = doacaoId;
     }
 
     public Double getValor() {

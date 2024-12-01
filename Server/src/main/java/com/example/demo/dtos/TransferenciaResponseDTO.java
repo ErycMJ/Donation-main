@@ -1,20 +1,31 @@
 package com.example.demo.dtos;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class TransferenciaResponseDTO {
-    private Long id;
+    private UUID id; 
     private String origem;
     private String destino;
+    private String doacaoTitulo;
     private Double valor;
     private LocalDateTime dataTransferencia;
 
+    public TransferenciaResponseDTO(UUID id, String origem, String destino, String doacaoTitulo, Double valor, LocalDateTime dataTransferencia) {
+        this.id = id;
+        this.origem = origem;
+        this.destino = destino;
+        this.doacaoTitulo = doacaoTitulo;
+        this.valor = valor;
+        this.dataTransferencia = dataTransferencia;
+    }
+
     // Getters e Setters
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -32,6 +43,14 @@ public class TransferenciaResponseDTO {
 
     public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public String getDoacaoTitulo() {
+        return doacaoTitulo;
+    }
+
+    public void setDoacaoTitulo(String doacaoTitulo) {
+        this.doacaoTitulo = doacaoTitulo;
     }
 
     public Double getValor() {

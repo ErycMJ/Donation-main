@@ -3,7 +3,6 @@ package com.example.demo.services;
 import com.example.demo.dtos.UsuarioRequisicaoDto;
 import com.example.demo.dtos.UsuarioRespostaDto;
 import com.example.demo.mappers.UsuarioMapper;
-import com.example.demo.models.GrupoModelo;
 import com.example.demo.models.UsuarioModelo;
 import com.example.demo.repositories.GrupoRepository;
 import com.example.demo.repositories.UsuarioRepository;
