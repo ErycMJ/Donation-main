@@ -1,32 +1,30 @@
 package com.example.demo.mappers;
 
-import java.time.LocalDateTime;
-
-import com.example.demo.dtos.TransferenciaRequestDTO;
-import com.example.demo.dtos.TransferenciaResponseDTO;
-import com.example.demo.models.DoacaoModelo;
-import com.example.demo.models.Transferencia;
+import com.example.demo.dtos.TransferenciaRequisicaoDto;
+import com.example.demo.dtos.TransferenciaRespostaDto;
+import com.example.demo.models.TransferenciaModelo;
 import com.example.demo.models.UsuarioModelo;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TransferenciaMapper {
-    public static TransferenciaResponseDTO toResponseDTO(Transferencia transferencia) {
-        return new TransferenciaResponseDTO(
+
+    public TransferenciaModelo toEntity(TransferenciaRequisicaoDto dto, UsuarioModelo remetente, UsuarioModelo destinatario) {
+        TransferenciaModelo transferencia = new TransferenciaModelo();
+        transferencia.setRemetente(remetente);
+        transferencia.setDestinatario(destinatario);
+        transferencia.setValor(dto.valor());
+        transferencia.setDataTransferencia(java.time.LocalDateTime.now());
+        return transferencia;
+    }
+
+    public TransferenciaRespostaDto toDto(TransferenciaModelo transferencia) {
+        return new TransferenciaRespostaDto(
                 transferencia.getId(),
-                transferencia.getOrigem().getNome(),
-                transferencia.getDestino().getNome(),
-                transferencia.getDoacao().getTitulo(),
+                transferencia.getRemetente().getId(),
+                transferencia.getDestinatario().getId(),
                 transferencia.getValor(),
                 transferencia.getDataTransferencia()
         );
-    }
-
-    public static Transferencia toEntity(TransferenciaRequestDTO dto, UsuarioModelo origem, UsuarioModelo destino, DoacaoModelo doacao) {
-        Transferencia transferencia = new Transferencia();
-        transferencia.setOrigem(origem);
-        transferencia.setDestino(destino);
-        transferencia.setDoacao(doacao);
-        transferencia.setValor(dto.getValor());
-        transferencia.setDataTransferencia(LocalDateTime.now());
-        return transferencia;
     }
 }
