@@ -93,9 +93,9 @@ public class TransferenciaService {
     private TransferenciaRespostaDto toDto(TransferenciaModelo transferencia) {
         return new TransferenciaRespostaDto(
                 transferencia.getId(),
-                BigDecimal.valueOf(transferencia.getValor()),  // Converte valor para BigDecimal
+                BigDecimal.valueOf(transferencia.getValor()),   // Converte valor para BigDecimal
                 transferencia.getRemetente().getId(),
                 transferencia.getDestinatario().getId()
         );
     }
-}
+} 
